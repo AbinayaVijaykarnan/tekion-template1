@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,180 +8,291 @@
     <link rel="stylesheet" href="template.css">
     <!--Font-awesome icons-->
     <script src="https://kit.fontawesome.com/98be6a7515.js" crossorigin="anonymous"></script>
-  <title>Template</title>
+
+    <title>Template</title>
 </head>
+
 <body>
-    
-<div class="outer-container">
-       <!--Row1-->
-    <div class="row1">
-        <h1>GLOBAL NETWORK PORTAL
-            <a href="tel:+123456789"><i class="fas fa-phone"></i>On Call </a>
-        </h1>
-    </div>
 
-       <!--Row2-->
-    <div class="row2">
-             <!--icons-->
-        <div class="icons"> 
-            <div>  <i class="fas fa-arrow-right"></i> </div> 
-            <div>  <i class="fas fa-chart-area"></i>  </div> 
-            <div>  <button type="button">MA</button>  </div> 
-            <div>  <button type="button">ST</button>  </div> 
-            <div>  <button type="button">MO</button>   </div> 
-            <div>  <button type="button">SE</button>  </div> 
-            <div>  <button type="button">TC</button>  </div> 
-            <div>  <i class="fas fa-clock"></i></div>
-         </div>
+    <div class="outer-container">
+        <!--header-->
+        <div class="header">
+            <h1>GLOBAL NETWORK PORTAL
+                <a href="tel:+123456789"><i class="fas fa-phone"></i>On Call </a>
+            </h1>
+        </div>
 
+        <!--main-container-->
+        <div class="main-container">
+            <!--icons-->
+            <div class="icons">
+                <div> <i class="fas fa-arrow-right"></i> </div>
+                <div> <i class="fas fa-chart-area"></i> </div>
+                <div> <a href="#MA "><button type="button">MA</button> </a></div>
+                <div> <a href="#ST"><button type="button">ST</button> </a> </div>
+                <div> <a href="#MO"><button type="button">MO</button> </a> </div>
+                <div> <a href="#SE"><button type="button">SE</button>  </a></div>
+                <div>
+                    <a href="#TC"> <button type="button">TC</button></a>
+                </div>
+                <div> <i class="fas fa-clock"></i></div>
+                <div id="plus-icon"> <i class="fas fa-plus"></i> </div>
+            </div>
             <!--dashboard-->
-            
-        <div class="dashboard">
-            <h4 style="margin:5px;">Dashboard </h4> <br>
-                            <!--section1-->
-            <div class="section1">
-                <h4>MARVEL</h4>
-                <h5>Datacenter Overview</h5>
-                <div class="sec1">
-                   <div class="graph1"> 
-                       <img src="images/piechart2-modified.png" alt="piechart2">
-                   </div>
-
-                    <div class="table1">
-                        <ul>
-                            <li> <span class="dot1"></span> Number of Hosts Deployed <span class="badge">30.2%</span></li>
-                            <li> <span class="dot2"></span> Number of Networks <span class="badge">11.3%</span></li>
-                            <li> <span class="dot3"></span> Number of Interfaces <span class="badge">49.5%</span></li>
-                        </ul>
-                    </div>  
-                    <br class="clear">
+            <div class="dashboard">
+                <div class="dashboard-heading">
+                    <h4 style="margin:5px;">Dashboard </h4> <br>
                 </div>
 
-                <h6>
-                    <div>
-                        Interface Total Bandwidth
-                    </div>
-                    <div >
-                        <table>
+
+                <!--section1-->
+
+                <div class="dashboard-container">
+                    <!--Card-->
+
+                    <form method="post" enctype="multipart/form-data" class="form" name="card">
+                        <table id="card-content">
                             <tr>
-                                <td class="bandwidth"> 40.978</td>
+                                <td> <input type="text" name="title" id="title" placeholder="Enter Title" required onkeypress='return restrictNumbers(event)'>
+                                </td>
                             </tr>
+
                             <tr>
-                                <td class="unit">TBPS</td>
+                                <td><input type="text" name="subtitle" id="subtitle" placeholder="Enter SubTitle" required onkeypress='return restrictNumbers(event)'> </td>
                             </tr>
+
+                            <tr>
+                                <td>
+                                    CHART INPUT:
+                                    <input type="number" name="valueA" id="valueA" placeholder="Enter valueA">
+
+                                    <input type="number" name="valueB" id="valueB" placeholder="Enter valueB">
+
+                                    <input type="number" name="valueC" id="valueC" placeholder="Enter valueC">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <ul>
+                                        <li>
+                                            <input type="text" name="description1" id="description1" placeholder="Enter First description" onkeypress='return restrictNumbers(event)'>
+
+                                            <input type="number" name="percentage1" id="percentage1" placeholder="Enter First Percentage" onkeypress='return restrictAlphabets(event)'> %
+                                        </li>
+                                        <li> <input type="text" name="description2" id="description2" placeholder="Enter Second description" onkeypress='return restrictNumbers(event)'>
+
+                                            <input type="number" name="percentage2" id="percentage2" placeholder="Enter Second Percentage" onkeypress='return restrictAlphabets(event)'> %
+                                        </li>
+                                        <li> <input type="text" name="description3" id="description3" placeholder="Enter Third description" onkeypress='return restrictNumbers(event)'>
+
+                                            <input type="number" name="percentage3" id="percentage3" placeholder="Enter Third Percentage" onkeypress='return restrictAlphabets(event)'> %
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td> <button type="button" name="cancel-button" id="cancel-button" onclick="cancel()"> CANCEL</button> </td>
+                            </tr>
+
+                            <tr>
+                                <td> <button type="button" name="submit-button" id="submit-button" onclick="createCard(event)"> ADD NEW CARD</button> </td>
+                            </tr>
+
+                            <tr>
+                                <td> <button type="reset" name="reset-button" id="reset-button" onclick="reset()"> RESET </button>
+
+                                </td>
+                            </tr>
+
                         </table>
-                    </div>  
-                </h6>  
-                <br class="clear">
+                    </form>
 
-                <div class="viewmore">View More  <i class="fas fa-arrow-right"></i> </div>
-            </div>
+                    <!--show-->
+                    <!-- <table id="show">
+                        <tbody>
 
-                            <!--section2-->
-            <div class="section2">
-                <h4>STUDIO PRODUCTION NETWORK</h4>
-                <h5>Requests Overview</h5>
-                <div class="sec2">
-                   <div class="graph1"> 
-                       <img src="images/piechart4.png" alt="piechart4">
-                   </div>
+                        </tbody>
+                    </table> -->
 
-                    <div class="table2">
-                        <ul>
-                            <li> 
+
+                    <!--Dashboard section-->
+                    <div class="dashboard-section" id="MA">
+                        <h4>MARVEL</h4>
+                        <h5>Datacenter Overview</h5>
+                        <div class="dashboard-content">
+                            <div class="dashboard-image">
+                                <img src="images/piechart2-modified.png" alt="piechart2">
+                            </div>
+
+                            <div class="dashboard-table">
+                                <ul>
+                                    <li> <span class="green-dot"></span> Number of Hosts Deployed <span class="dashboard-percentage">30.2%</span></li>
+                                    <li> <span class="skyblue-dot"></span> Number of Networks <span class="dashboard-percentage">11.3%</span></li>
+                                    <li> <span class="darkblue-dot"></span> Number of Interfaces <span class="dashboard-percentage">49.5%</span></li>
+                                </ul>
+                            </div>
+                            <br class="clear">
+                        </div>
+
+                        <h6>
+                            <div>
+                                Interface Total Bandwidth
+                            </div>
+                            <div>
                                 <table>
                                     <tr>
-                                        <td> <span class="dot1"></span> </td>
-                                        <td class="sec2-content">  Number of Firewall Requests</td>
-                                        <td class="badge1"> 30.2%</td>
+                                        <td class="bandwidth"> 40.978</td>
                                     </tr>
-                                </table>
-                            </li>
-                            <li> 
-                                <table>
                                     <tr>
-                                        <td> <span class="dot2"></span> </td>
-                                        <td class="sec2-content"> Number of Wireless Access Requests</td>
-                                        <td class="badge1"> 11.3%</td>
+                                        <td class="unit">TBPS</td>
                                     </tr>
                                 </table>
-                            </li>
-                            <li> 
-                                <table>
-                                    <tr>
-                                        <td> <span class="dot3"></span> </td>
-                                        <td class="sec2-content">  Number of VPN Access Requests</td>
-                                        <td class="badge1">49.5%</td>
-                                    </tr>
-                                </table>
-                            </li>
-                        </ul>
-                    </div>  
-                    <br class="clear">
-                </div>
+                            </div>
+                        </h6>
+                        <br class="clear">
 
-                <div class="sec2-viewmore">View More  <i class="fas fa-arrow-right"></i> </div>
-            </div>
-                            <!--section3-->
-            <div class="section3">
-                <h4>MOTION PICTURE PRODUCTIONS</h4>
+                        <div class="viewmore" onclick="marvelviewmore()">View More <i class="fas fa-arrow-right"></i> </div>
 
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus tenetur, accusantium necessitatibus facilis, illo ea quo vitae ex rem voluptate quaerat possimus? Quae laudantium voluptatibus quaerat provident necessitatibus repudiandae, cupiditate sit ullam.</p>
+                        <div class="viewmore-content">
+                            <p class="marvel-viewmore-para">
+                                The Network Portal is a database of gene transcription regulatory networks and enables comparative analysis. Deciphering the complexity of biological systems requires a systems-level view of regulatory players and their interactions. However, visualizing
+                                and analyzing these interaction resources.
+                            </p>
+                        </div>
+                    </div>
 
-                <div class="sec3-viewmore">View More  <i class="fas fa-arrow-right"></i> </div>
-            </div>
-                            <!--section4-->
-            <div class="section4">
-                <h4>SEARCH LIGHT</h4>
-                <h5>Datacenter Overview</h5>
-                <div class="sec1">
-                   <div class="graph1"> 
-                       <img src="images/piechart3-modified.png" alt="piechart3">
-                   </div>
+                    <!--section2-->
+                    <div class="dashboard-section" id="ST">
+                        <h4>STUDIO PRODUCTION NETWORK</h4>
+                        <h5>Requests Overview</h5>
+                        <div class="dashboard-content">
+                            <div class="dashboard-image">
+                                <img src="images/piechart4.png" alt="piechart4">
+                            </div>
 
-                    <div class="table1">
-                        <ul>
-                            <li> <span class="dot1"></span> Number of Hosts Deployed <span class="badge">54.1%</span></li>
-                            <li> <span class="dot2"></span> Number of Networks <span class="badge">16.6%</span></li>
-                            <li> <span class="dot3"></span> Number of Interfaces <span class="badge">29.1%</span></li>
-                        </ul>
-                    </div>  
-                    <br class="clear">
-                </div>
+                            <div class="studio-table">
+                                <ul>
+                                    <li>
+                                        <table>
+                                            <tr>
+                                                <td> <span class="green-dot"></span> </td>
+                                                <td class="studio-table-content"> Number of Firewall Requests</td>
+                                                <td class="studio-percentage"> 30.2%</td>
+                                            </tr>
+                                        </table>
+                                    </li>
 
-                <div class="sec4-viewmore">View More  <i class="fas fa-arrow-right"></i> </div>
-            </div>
+                                    <li>
+                                        <table>
+                                            <tr>
+                                                <td> <span class="skyblue-dot"></span> </td>
+                                                <td class="studio-table-content"> Number of Wireless Access Requests</td>
+                                                <td class="studio-percentage"> 11.3%</td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                    <li>
+                                        <table>
+                                            <tr>
+                                                <td> <span class="darkblue-dot"></span> </td>
+                                                <td class="studio-table-content"> Number of VPN Access Requests</td>
+                                                <td class="studio-percentage">49.5%</td>
+                                            </tr>
+                                        </table>
+                                    </li>
+                                </ul>
+                            </div>
+                            <br class="clear">
+                        </div>
+
+                        <div class="studio-viewmore" onclick="studioviewmore()">View More <i class="fas fa-arrow-right"></i> </div>
+
+                        <div class="viewmore-content">
+                            <p class="studio-viewmore-para">
+                                A global production network is one whose interconnected nodes and links extend spatially across national boundaries and, in so doing, integrates parts of disparate national and subnational territories".[1] GPN frameworks combines the insights from the
+                                global value chain analysis. </p>
+                        </div>
+                    </div>
+                    <!--section3-->
+                    <div class="dashboard-section" id="MO">
+                        <h4>MOTION PICTURE PRODUCTIONS</h4>
+
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus tenetur, accusantium necessitatibus facilis, illo ea quo vitae ex rem voluptate quaerat possimus? Quae laudantium voluptatibus quaerat provident necessitatibus repudiandae,
+                            cupiditate sit ullam.</p>
+
+                        <div class="viewmore" onclick="motionviewmore()">View More <i class="fas fa-arrow-right"></i> </div>
+                        <div class="viewmore-content">
+                            <p class="motion-viewmore-para">
+                                The Motion Picture Production Code was a set of industry guidelines for the self-censorship of content that was applied to most motion pictures released by major studios in the United States from 1934 to 1968. It is also popularly known as the Hays Code,
+                                after Will H. Hays, president of the Motion Picture Producers. </div>
+
+                    </div>
+                    <!--section4-->
+                    <div class="dashboard-section" id="SE">
+                        <h4>SEARCH LIGHT</h4>
+                        <h5>Datacenter Overview</h5>
+                        <div class="dashboard-content">
+                            <div class="dashboard-image">
+                                <img src="images/piechart3-modified.png" alt="piechart3">
+                            </div>
+
+                            <div class="dashboard-table">
+                                <ul>
+                                    <li> <span class="green-dot"></span> Number of Hosts Deployed <span class="dashboard-percentage">54.1%</span></li>
+                                    <li> <span class="skyblue-dot"></span> Number of Networks <span class="dashboard-percentage">16.6%</span></li>
+                                    <li> <span class="darkblue-dot"></span> Number of Interfaces <span class="dashboard-percentage">29.1%</span></li>
+                                </ul>
+                            </div>
+                            <br class="clear">
+                        </div>
+
+                        <div class="viewmore" onclick="searchviewmore()">View More <i class="fas fa-arrow-right"></i> </div>
+
+                        <div class="viewmore-content">
+                            <p class="search-viewmore-para">
+                                The spare parts are categorised by the type of searchlight, hand controlled or electric. Most of the spare parts for Seematz searchlights are in stock and shipped within 24 hours. Shipping outside the netherlands is also an option. Contact Marcel Vink
+                                for the possiblities of shipping worldwide. </div>
+                    </div>
 
                     <!--Section5-->
-            <div class="section5">
-                <h4>TCC TITLE</h4>
-               
-                <div class="image"> </div>
+                    <div class="tcc-section" id="TC">
+                        <h4>TCC TITLE</h4>
 
-                <div class="sec5-viewmore">View More  <i class="fas fa-arrow-right"></i> </div>
+                        <div class="tcc-image"> </div>
+
+                        <div class="viewmore">View More <i class="fas fa-arrow-right"></i> </div>
+                    </div>
+                    <!--Section6-->
+                    <div class="learnmore-section">
+                        <h4>LEARN MORE</h4>
+
+                        <div class="learnmore-image"> </div>
+
+                        <div class="viewmore">View More <i class="fas fa-arrow-right"></i> </div>
+                    </div>
+                </div>
             </div>
-                     <!--Section6-->
-            <div class="section6">
-                <h4>LEARN MORE</h4>
+        </div><br>
 
-                <div class="image"> </div>
 
-                <div class="sec6-viewmore">View More  <i class="fas fa-arrow-right"></i> </div>
-            </div>
-
-        </div> 
+        <!--footer-->
+        <div class="footer">
+            <p>THE
+                <span class="footer-content"> Walt Disney</span> Studios
+                <span class="copyright">&copy; Copyright-The Walt Disney Studios - Studio Technology - Motion Picture Innovation</span>
+            </p>
+        </div>
     </div>
-   
-   <!--Row3-->
-   <div class="row3">
-       <p>THE 
-           <span class="footer"> Walt Disney</span>  Studios
-           <span class="copyright">&copy; Copyright-The Walt Disney Studios - Studio Technology - Motion Picture Innovation</span>
-        </p>
-    </div>  
 
 
-</div>
+    <!--Javascript-->
+    <script src="index.js">
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 </body>
+
 </html>
