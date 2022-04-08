@@ -1,1 +1,61 @@
 
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <script>
+        function submit() {
+            const valueA = document.chart.valueA.value;
+            const valueB = document.chart.valueB.value;
+            console.log(valueA);
+            chart(valueA, valueB);
+
+        }
+
+        //Display chart:
+        function chart(valueA, valueB) {
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                data: [{
+                    type: "pie",
+                    startAngle: 240,
+                    yValueFormatString: "##0.00\"%\"",
+                    indexLabel: "{label} {y}",
+                    dataPoints: [{
+                        y: valueA,
+                        label: "A"
+                    }, {
+                        y: valueB,
+                        label: "B"
+                    }, {
+                        y: 7.06,
+                        label: "C"
+                    }, {
+                        y: 12,
+                        label: "D"
+                    }, {
+                        y: 1.26,
+                        label: "E"
+                    }]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <form method="get" name="chart">
+        valueA:<input type="number" name="valueA" id="valueA">
+        <div id="chartContainer" style="height: 170px; width: 10%;"></div>
+        valueB:
+        <input type="number" name="valueB" id="valueB">
+
+    </form>
+    <button onclick="submit()"> SUBMIT</button>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
